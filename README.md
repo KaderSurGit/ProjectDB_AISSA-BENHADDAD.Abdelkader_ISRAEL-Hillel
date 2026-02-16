@@ -107,4 +107,6 @@ Final negotiated price,Numeric,9
 Production status,Alphanumeric,30
 Special request description,Alphanumeric,500
 
+<img width="1290" height="637" alt="image" src="https://github.com/user-attachments/assets/10996945-538b-478d-a2f8-dfbf300c972d" />
+<img width="1290" height="637" alt="image" src="https://github.com/user-attachments/assets/10996945-538b-478d-a2f8-dfbf300c972d" />
 
