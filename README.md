@@ -20,11 +20,13 @@ Provide the business rules and the data dictionary."
 Part 1: Data Business Rules
 Here are the operational rules for our High Fashion Maison, designed to structure our information system:
 
+
 Our Boutiques & Network
 
 We operate a network of international boutiques. Each boutique is identified by a unique code, a name, and its location (city and country).
 
 Each boutique has a specific prestige tier (e.g., Flagship, Pop-up, Historical) and a main phone number.
+
 
 Our Artisans & Transmission (Recursive Relationship)
 
@@ -34,11 +36,13 @@ Transmission of savoir-faire is key: A "Junior" artisan must be mentored by a "M
 
 A "Master" can mentor several juniors, but a junior has only one active mentor at a time. This constitutes a strict internal hierarchy.
 
+
 Our VIP Clientele (Strong Entity)
 
 Our clients are exclusive members identified by a unique VIP membership number.
 
 We maintain their personal details (first name, last name), contact information (email, phone), preferred language, and lifetime spending tier (e.g., Platinum, Diamond).
+
 
 Bespoke Orders (Weak Entity)
 
@@ -49,6 +53,7 @@ Specific Rule: A bespoke order is identified by a sequential number internal to 
 Each order tracks a creation date, an estimated delivery date, a final negotiated price, and a production status.
 
 An order is always managed by exactly one boutique and crafted by exactly one lead artisan.
+
 
 Limited-Edition Products
 
