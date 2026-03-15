@@ -222,3 +222,8 @@ ALTER TABLE PURCHASE ADD CONSTRAINT chk_positive_purchase CHECK (Purchase_Quanti
 ALTER TABLE BESPOKE_ORDER ADD CONSTRAINT chk_positive_bespoke_price CHECK (Final_Price >= 0);
 Provide the set in the form of an SQL script ready to be executed."
 
+
+V. Fifth step : querying the database
+
+Usage scenario :
+For our primary usage scenario, we imagine the database being used by the brand's Global Marketing Director and the Client Relationship Management team. Suppose the house is planning an ultra-exclusive runway show in Paris and needs to curate the perfect guest list. The marketing team will use the database to analyze VIP client purchasing behavior, specifically filtering for our top-tier Diamond clients to ensure our biggest spenders receive priority access. Because our clientele is international, the team will also extract preferred language data to send out highly personalized, localized invitations. Beyond just organizing the event, the team needs to track the overall popularity of our limited-edition products and check stock levels across our international boutiques. This way, if a VIP client wants to acquire a rare piece they saw on the runway, the marketing and sales teams already know exactly which boutiques have the inventory to fulfill that request immediately.
