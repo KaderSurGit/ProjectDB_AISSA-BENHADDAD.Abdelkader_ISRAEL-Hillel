@@ -153,6 +153,8 @@ Special request description,Alphanumeric,500
 
 PART 2
 
+
+
 LDM :
 
 BOUTIQUE = (boutique_code VARCHAR(50), boutique_name VARCHAR(50), boutique_city VARCHAR(50), boutique_country VARCHAR(50), Boutique_prestige_tier_classification VARCHAR(50), boutique_phone VARCHAR(50));
@@ -170,4 +172,53 @@ MENTOR = (#Artisan_ID_, Mentorship_Start_Date_ DATE, #Artisan_ID__1);
 STOCK = (#boutique_code, #Product_Reference_, Stock_Quantity INT);
 
 PURCHASE = (#VIP_Number_, #Product_Reference_, Purchase_Date DATE, Purchase_Quantity INT);
+
+
+
+IV. Fourth Step : Inserting Data
+
+Prompt:
+
+"Provide the insertion queries used to populate the database, whose relational model is as follows:
+
+BOUTIQUE(Boutique_Code, Boutique_Name, Boutique_City, Boutique_Country, Prestige_Tier, Boutique_Phone) Primary Key: Boutique_Code
+
+ARTISAN(Artisan_ID, First_Name, Last_Name, Craft_Specialty, Hire_Date, Years_Experience, Workshop_Location, #Mentor_ID, Mentorship_Start_Date) Primary Key: Artisan_ID
+
+CLIENT_VIP(VIP_Number, First_Name, Last_Name, Email, Phone, Preferred_Language, Spend_Tier) Primary Key: VIP_Number
+
+LIMITED_PRODUCT(Product_Reference, Product_Name, Product_Category, Material_Description, Production_Limit, Catalog_Price) Primary Key: Product_Reference
+
+BESPOKE_ORDER(#VIP_Number, Order_Sequential_Num, Order_Date, Estimated_Date, Final_Price, Production_Status, Client_Request_Notes, #Artisan_ID, #Boutique_Code) Primary Keys: VIP_Number, Order_Sequential_Num
+
+STOCK(#Boutique_Code, #Product_Reference, Stock_Quantity) Primary Keys: Boutique_Code, Product_Reference
+
+PURCHASE(#VIP_Number, #Product_Reference, Purchase_Date, Purchase_Quantity) Primary Keys: VIP_Number, Product_Reference, Purchase_Date
+
+
+Primary keys correspond to IDs, unless otherwise specified (when it is a composite attribute).
+Foreign keys are identified by # and have the same name as the primary keys to which they refer.
+
+There must be: 5 rows for BOUTIQUE, 8 rows for ARTISAN (including at least 3 masters who have NULL for Mentor_ID, and 5 juniors who refer to those masters), 10 rows for CLIENT_VIP, 8 rows for LIMITED_PRODUCT, 15 rows for BESPOKE_ORDER, 15 rows for STOCK, and 20 rows for PURCHASE.
+
+The data should reflect a high-end luxury fashion and haute couture brand (similar to Louis Vuitton or Hermès) with international boutiques, exquisite materials, and very wealthy clients of mixed international origins.
+
+Foreign keys must refer to existing primary keys: provide the lines starting with filling in the tables in which there are no foreign keys, then the tables in which the foreign keys refer to primary keys in tables that have already been filled in. For the recursive ARTISAN table, ensure you insert the masters before the juniors.
+
+The data must comply with the following validation constraints:
+
+ALTER TABLE ARTISAN ADD CONSTRAINT chk_mentorship_date CHECK (Mentorship_Start_Date >= Hire_Date);
+
+ALTER TABLE BESPOKE_ORDER ADD CONSTRAINT chk_order_dates CHECK (Estimated_Date >= Order_Date);
+
+ALTER TABLE LIMITED_PRODUCT ADD CONSTRAINT chk_positive_price CHECK (Catalog_Price > 0);
+
+ALTER TABLE LIMITED_PRODUCT ADD CONSTRAINT chk_positive_limit CHECK (Production_Limit > 0);
+
+ALTER TABLE STOCK ADD CONSTRAINT chk_positive_stock CHECK (Stock_Quantity >= 0);
+
+ALTER TABLE PURCHASE ADD CONSTRAINT chk_positive_purchase CHECK (Purchase_Quantity > 0);
+
+ALTER TABLE BESPOKE_ORDER ADD CONSTRAINT chk_positive_bespoke_price CHECK (Final_Price >= 0);
+Provide the set in the form of an SQL script ready to be executed."
 
