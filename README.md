@@ -110,3 +110,18 @@ Special request description,Alphanumeric,500
 <img width="1290" height="637" alt="image" src="https://github.com/user-attachments/assets/10996945-538b-478d-a2f8-dfbf300c972d" />
 <img width="1290" height="637" alt="image" src="https://github.com/user-attachments/assets/10996945-538b-478d-a2f8-dfbf300c972d" />
 
+
+
+
+
+PART 2
+
+LDM : 
+BOUTIQUE = (boutique_code VARCHAR(50), boutique_name VARCHAR(50), boutique_city VARCHAR(50), boutique_country VARCHAR(50), Boutique_prestige_tier_classification VARCHAR(50), boutique_phone VARCHAR(50));
+ARTISAN = (Artisan_ID_ VARCHAR(50), Years_Experience INT, Artisan_First_Name_ VARCHAR(50), Artisan_Last_Name_ VARCHAR(50), Craft_Specialty_ VARCHAR(50), Hire_Date_ DATE, Workshop_Location VARCHAR(50));
+CLIENT_VIP = (VIP_Number_ VARCHAR(50), Client_First_Name_ VARCHAR(50), Client_Last_Name_ VARCHAR(50), Client_Email_ VARCHAR(50), Client_Phone_ VARCHAR(50), Preferred_Language_ VARCHAR(50), Spend_Tier_ VARCHAR(50));
+LIMITED_PRODUCT = (Product_Reference_ VARCHAR(50), Product_Name_ VARCHAR(100), Product_Category_ VARCHAR(50), Material_Description_ VARCHAR(50), Production_Limit_ VARCHAR(50), Catalog_Price_ DECIMAL(15,2));
+BESPOKE_ORDER_ = (#VIP_Number_, Order_Sequential_Num_ VARCHAR(50), Order_Date_ VARCHAR(50), Estimated_Date_ VARCHAR(50), Final_Price_ VARCHAR(50), Production_Status_ VARCHAR(50), Client_Request_Notes_ VARCHAR(50), #Artisan_ID_, #boutique_code);
+MENTOR = (#Artisan_ID_, Mentorship_Start_Date_ DATE, #Artisan_ID__1);
+STOCK = (#boutique_code, #Product_Reference_, Stock_Quantity INT);
+PURCHASE = (#VIP_Number_, #Product_Reference_, Purchase_Date DATE, Purchase_Quantity INT);
